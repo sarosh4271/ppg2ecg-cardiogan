@@ -1,6 +1,5 @@
 import tensorflow as tf
 
-
 class Checkpoint:
     """Enhanced "tf.train.Checkpoint"."""
 

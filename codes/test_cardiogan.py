@@ -1,16 +1,6 @@
-import os
-import socket
-import time
-import numpy as np
 import tensorflow as tf
-from datetime import datetime
-import matplotlib.pyplot as plt
-import cv2
-import sklearn.preprocessing as skp
-
-
-import module 
-import preprocessing
+import module
+from tflib import Checkpoint
 
 tf.keras.backend.set_floatx('float64')
 tf.autograph.set_verbosity(0)
@@ -20,23 +10,19 @@ def sample_P2E(P, model):
     fake_ecg = model(P, training=False)
     return fake_ecg
 
-
-
-
 ########### params ###########
 ecg_sampling_freq = 128
 ppg_sampling_freq = 128
 window_size = 4
 ecg_segment_size = ecg_sampling_freq*window_size
 ppg_segment_size = ppg_sampling_freq*window_size
-model_dir = 'path/to/weights'
+model_dir = '../weights/ckpt-1.index'
 
 """ model """
 Gen_PPG2ECG = module.generator_attention()
 """ resotre """
-tflib.Checkpoint(dict(Gen_PPG2ECG=Gen_PPG2ECG), model_dir).restore()
+Checkpoint(dict(Gen_PPG2ECG=Gen_PPG2ECG), model_dir).restore()
 print("model loaded successfully")
-
 
 """ please process the data as mentioned below before extracting ECG output """
 # load the data: x_ppg = np.loadtxt()

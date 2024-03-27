@@ -26,7 +26,6 @@ import preprocessing
 tf.keras.backend.set_floatx('float64')
 tf.autograph.set_verbosity(0)
 
-
 def connect(deviceID
             , serverAddress = '127.0.0.1'
             , serverPort = 28000
