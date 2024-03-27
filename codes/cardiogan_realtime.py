@@ -11,11 +11,10 @@ warnings.filterwarnings('ignore',category=FutureWarning)
 logging.getLogger('tensorflow').disabled = True
 
 import socket
-import time
 import numpy as np
+from tensorflow import keras
 import tensorflow as tf
 from datetime import datetime
-import matplotlib.pyplot as plt
 import cv2
 import sklearn.preprocessing as skp
 
@@ -23,7 +22,7 @@ import tflib
 import module 
 import preprocessing
 
-tf.keras.backend.set_floatx('float64')
+keras.backend.set_floatx('float64')
 tf.autograph.set_verbosity(0)
 
 def connect(deviceID

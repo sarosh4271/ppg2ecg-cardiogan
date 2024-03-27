@@ -1,8 +1,9 @@
 import tensorflow as tf
+from tensorflow import keras as keras
 import module
 from tflib import Checkpoint
 
-tf.keras.backend.set_floatx('float64')
+keras.backend.set_floatx('float64')
 tf.autograph.set_verbosity(0)
 
 @tf.function
