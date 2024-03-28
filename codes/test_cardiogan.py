@@ -15,7 +15,7 @@ def sample_P2E(P, model):
     fake_ecg = model(P, training=False)
     return fake_ecg
 
-def process_all(sample_data):
+def process_raw_data(sample_data):
     values_list = list(sample_data.values())
     int_values_list = [float(item) for item in values_list]
     x_ppg = int_values_list
@@ -46,6 +46,4 @@ def process_all(sample_data):
     x_ppg = x_ppg.reshape(-1)
     x_ecg = x_ecg.reshape(-1)
 
-    print('ecg:', x_ecg)
-    print('ppg: ',x_ppg)
     return [x_ecg,x_ppg]
