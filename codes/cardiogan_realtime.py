@@ -12,7 +12,7 @@ logging.getLogger('tensorflow').disabled = True
 
 import socket
 import numpy as np
-from tensorflow import keras
+import keras
 import tensorflow as tf
 from datetime import datetime
 import cv2
@@ -149,8 +149,8 @@ with train_summary_writer.as_default():
                     x_ppg = skp.minmax_scale(x_ppg, (-1, 1), axis=1)
                     
                     x_ecg = sample_P2E(x_ppg, Gen_PPG2ECG)
-                    
-                    x_ecg = x_ecg.numpy()
+                    # todo
+                    # x_ecg = x_ecg.numpy()
                     x_ecg = preprocessing.filter_ecg(x_ecg, 128)
                     x_ppg = x_ppg.reshape(-1)
                     x_ecg = x_ecg.reshape(-1)

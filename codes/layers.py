@@ -1,5 +1,5 @@
 import tensorflow as tf
-from tensorflow import keras as keras
+import keras
 import tensorflow_addons as tfa
 
 weights_initializer = tf.random_normal_initializer(mean=0.0, stddev=0.02, seed=None)
@@ -42,10 +42,13 @@ def BatchNormalization(trainable=True, virtual_batch_size=None):
 
 def Activation(x, activation):
     
-    if activation == 'relu':
-        return keras.activations.relu(x, alpha=0.0, max_value=None, threshold=0)
+    if activation == 'relu': 
+       #todo
+        return keras.activations.relu(x, max_value=None, threshold=0)
+        # return keras.activations.relu(x, alpha=0.0, max_value=None, threshold=0)
     elif activation == 'leaky_relu':
-        return keras.activations.relu(x, alpha=0.2, max_value=None, threshold=0)
+        return keras.activations.relu(x, max_value=None, threshold=0)
+        # return keras.activations.relu(x, alpha=0.2, max_value=None, threshold=0)
     elif activation == 'sigmoid':
         return keras.activations.sigmoid(x)
     elif activation == 'softmax':

@@ -1,5 +1,5 @@
 import tensorflow as tf
-from tensorflow import keras as keras
+import keras
 import layers
 # tf.keras.backend.set_floatx('float64')
 
